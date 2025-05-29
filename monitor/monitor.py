@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, redirect, url_for
+from flask_cors import CORS
 import os, requests
 
 # Lee las URLs desde la variable de entorno NODES (separadas por coma)
 NODE_URLS = [u.strip() for u in os.getenv("NODES", "").split(",") if u.strip()]
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/status")
 def status():
