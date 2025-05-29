@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const MONITOR_URL = "https://monitor-qtum.onrender.com";
+const MONITOR_URL = "https://monitor-qtum.onrender.com/status";
 
 export default function App() {
   const [nodes, setNodes] = useState([]);
@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>Estado de los Backends</h1>
+      <h1>Estado de los servidores</h1>
       {error && <p className="bad">{error}</p>}
       <ul>
         {nodes.map((n, i) => (
