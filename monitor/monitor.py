@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect, url_for
 import os, requests
 
 # Lee las URLs desde la variable de entorno NODES (separadas por coma)
@@ -18,3 +18,8 @@ def status():
             estado = "down"
         resultado.append({"url": url, "status": estado})
     return jsonify(resultado)
+
+@app.route("/")
+def home():
+    # return "Monitor en línea. Revisa /status para ver los nodos."
+    return redirect(url_for("status"))
